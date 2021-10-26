@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
@@ -21,16 +22,25 @@ public class Notice extends BaseTimeEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    @Column(length = 20, nullable = false)
-    private String author;
+    private LocalDateTime startDate;
+
+    private LocalDateTime endDate;
 
     private Long fileId;
 
     @Builder
-    public Notice(String title, String author, String content, Long fileId){
+    public Notice(String title, String content, LocalDateTime startDate, LocalDateTime endDate, Long fileId){
         this.title = title;
-        this.author = author;
         this.content = content;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.fileId = fileId;
+    }
+
+    public void update(String title, String content, LocalDateTime startDate, LocalDateTime endDate) {
+        this.title= title;
+        this.content = content;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 }

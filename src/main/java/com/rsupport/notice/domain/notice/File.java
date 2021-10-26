@@ -28,6 +28,9 @@ public class File {
 
     @Builder
     public File(Long id, String realFilename, String filename, String filePath){
-
+        this.id = id;
+        this.realFilename = realFilename;
+        this.filename = filename;
+        this.filePath = filePath;
     }
 }

@@ -30,7 +30,6 @@ public class NoticeRepositoryTest {
         noticeRepository.save(Notice.builder()
                 .title(title)
                 .content(content)
-                .author("test@test.com")
                 .fileId(1L)
                 .build());
 
