@@ -37,6 +37,9 @@
 - 공지사항 상세 조회 화면
 ![image](https://user-images.githubusercontent.com/37436822/139311016-acd6b55c-98a5-4ea5-acbf-f7f581061e38.png)
 
+- 실제 저장
+  ![image](https://user-images.githubusercontent.com/37436822/139316492-213072fe-d6fb-476f-999c-5561ba9bd251.png)
+
 ### 첨부파일
 - 단일 또는 다중 첨부파일 선택
 ![image](https://user-images.githubusercontent.com/37436822/139311549-c191c1b4-cbc7-42c9-9553-93b3a81048fa.png)
