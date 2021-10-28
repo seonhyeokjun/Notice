@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,7 +31,6 @@ public class NoticeRepositoryTest {
         noticeRepository.save(Notice.builder()
                 .title(title)
                 .content(content)
-                .fileId(1L)
                 .build());
 
         // when
@@ -40,6 +40,26 @@ public class NoticeRepositoryTest {
         Notice notice = noticeList.get(0);
         assertThat(notice.getTitle()).isEqualTo(title);
         assertThat(notice.getContent()).isEqualTo(content);
-        assertThat(notice.getFileId()).isEqualTo(1L);
+    }
+
+    @Test
+    public void BaseTimeEntity_등록(){
+        // given
+        LocalDateTime now = LocalDateTime.of(2021, 10, 27, 0, 0, 0);
+        noticeRepository.save(Notice.builder()
+                .title("title")
+                .content("content")
+                .build());
+
+        // when
+        List<Notice> noticeList = noticeRepository.findAll();
+
+        // then
+        Notice notice = noticeList.get(0);
+
+        System.out.println(">>>>>>>>> createDate=" + notice.getCreatedDate() + ", modifiedDate=" + notice.getModifiedDate());
+
+        assertThat(notice.getCreatedDate()).isAfter(now);
+        assertThat(notice.getModifiedDate()).isAfter(now);
     }
 }

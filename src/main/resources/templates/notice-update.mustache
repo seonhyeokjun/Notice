@@ -1,6 +1,6 @@
 {{>layout/header}}
 
-<h1>공자사항 수정</h1>
+<h1>공지사항 수정</h1>
 
 <div class="col-md-12">
     <div class="col-md-4">
@@ -18,22 +18,31 @@
                 <textarea class="form-control" id="content" placeholder="내용을 입력하세요.">{{notice.content}}</textarea>
             </div>
             <div class="form-group">
+                <label for="date">등록일시</label>
+                <input type="text" class="form-control" id="date" value="{{notice.createdDate}}" readonly>
+            </div>
+            <div class="form-group">
                 <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
                     <label>시작일</label>
-                    <input class="form-control" type="text" value="{{notice.startDate}}" readonly />
+                    <input class="form-control" type="text" value="{{notice.startDate.date}}" readonly />
                     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                 </div>
             </div>
             <div class="form-group">
                 <div id="datepicker2" class="input-group date" data-date-format="mm-dd-yyyy">
                     <label>종료일</label>
-                    <input class="form-control" type="text" value="{{notice.endDate}}" readonly />
+                    <input class="form-control" type="text" value="{{notice.endDate.date}}" readonly />
                     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="hit">조회수</label>
+                <input type="text" class="form-control" id="hit" value="{{notice.hit}}" readonly>
             </div>
         </form>
         <a href="/" role="button" class="btn btn-secondary">취소</a>
         <button type="button" class="btn btn-primary" id="btn-update">수정</button>
+        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
     </div>
 </div>
 

@@ -34,8 +34,15 @@ public class IndexController {
         return "notice-save";
     }
 
+    /**
+     * 수정 화면으로 이동
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("/notice/update/{id}")
     public String noticeUpdate(@PathVariable Long id, Model model){
+        noticeService.updateHit(id);
         NoticeResponseDto noticeResponseDto = noticeService.findById(id);
         model.addAttribute("notice", noticeResponseDto);
 

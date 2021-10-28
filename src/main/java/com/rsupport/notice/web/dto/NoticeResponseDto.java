@@ -4,6 +4,7 @@ import com.rsupport.notice.domain.notice.Notice;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,15 +18,16 @@ public class NoticeResponseDto {
     private String content;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private Long fileId;
+    private int hit;
+    private LocalDateTime createdDate;
 
     @Builder
-    public NoticeResponseDto(String title, String content, LocalDateTime startDate, LocalDateTime endDate, Long fileId){
+    public NoticeResponseDto(String title, String content, LocalDateTime startDate, LocalDateTime endDate, int hit){
         this.title = title;
         this.content = content;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.fileId = fileId;
+        this.hit = hit;
     }
 
     public Notice toEntity(){
@@ -34,7 +36,7 @@ public class NoticeResponseDto {
                 .content(content)
                 .startDate(startDate)
                 .endDate(endDate)
-                .fileId(fileId)
+                .hit(hit)
                 .build();
     }
 
@@ -44,6 +46,7 @@ public class NoticeResponseDto {
         this.content = notice.getContent();
         this.startDate = notice.getStartDate();
         this.endDate = notice.getEndDate();
-        this.fileId = notice.getFileId();
+        this.hit = notice.getHit();
+        this.createdDate = notice.getCreatedDate();
     }
 }

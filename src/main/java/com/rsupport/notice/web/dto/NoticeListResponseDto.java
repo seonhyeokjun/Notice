@@ -10,10 +10,12 @@ public class NoticeListResponseDto {
     private Long id;
     private String title;
     private LocalDateTime modifiedDate;
+    private int hit;
 
     public NoticeListResponseDto(Notice notice){
         this.id = notice.getId();
         this.title = notice.getTitle();
         this.modifiedDate = notice.getModifiedDate();
+        this.hit = notice.getHit();
     }
 }
